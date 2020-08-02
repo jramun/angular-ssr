@@ -3,12 +3,14 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {LibraryModule} from "./modules/library-module/library.module";
-import {SharedModule} from "./modules/shared-module/shared.module";
-import {WebsiteModule} from "./modules/website-module/website.module";
-import {HttpClientModule} from "@angular/common/http";
+import {LibraryModule} from './modules/library-module/library.module';
+import {SharedModule} from './modules/shared-module/shared.module';
+import {WebsiteModule} from './modules/website-module/website.module';
+import {HttpClientModule} from '@angular/common/http';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {StoreModule} from "@ngrx/store";
 import {EffectsModule} from "@ngrx/effects";
-import {PostEffects} from "./modules/website-module/index-module/effects/post-effects.service";
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,13 +18,15 @@ import {PostEffects} from "./modules/website-module/index-module/effects/post-ef
     BrowserModule.withServerTransition({appId: 'serverApp'}),
     AppRoutingModule,
     LibraryModule,
-    EffectsModule.forRoot([PostEffects]),
     SharedModule,
     WebsiteModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreDevtoolsModule.instrument(),
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([])
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {
 }

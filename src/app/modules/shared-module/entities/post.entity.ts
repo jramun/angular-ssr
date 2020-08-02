@@ -1,6 +1,6 @@
-import {BaseEntity} from '../../library-module/entities/base-entity';
+import {BaseEntity} from '../../library-module/entities/base.entity';
 
-export class Post extends BaseEntity {
+export class PostEntity extends BaseEntity {
   private _description?: string;
 
   get description(): string {

@@ -1,19 +1,26 @@
 import {BaseAction} from "../../../library-module/actions/base.action";
-import {Post} from "../../../shared-module/entities/post";
+import {PostEntity} from "../../../shared-module/entities/post.entity";
 
 export enum PostActionType {
   ADD = '[Post Page] Add',
-  GET = '[Post Page] GET',
+  LOAD = '[Post Page] LOAD',
+  REFRESH = '[Post Page] SYNC',
 }
 
-// export class PostActionAdd extends BaseAction<Post> {
-//   constructor(private payload: Post) {
+// export class PostActionAdd extends BaseAction<PostEntity> {
+//   constructor(private payload: PostEntity) {
 //     super(payload, PostActionType.ADD);
 //   }
 // }
 
-export class PostActionGet extends BaseAction<Post> {
+export class PostActionLoad extends BaseAction<PostEntity[]> {
   constructor() {
-    super(null, PostActionType.GET);
+    super(null, PostActionType.LOAD);
+  }
+}
+
+export class PostActionRefresh extends BaseAction<PostEntity[]> {
+  constructor(payload: PostEntity[]) {
+    super(payload, PostActionType.REFRESH);
   }
 }

@@ -12,7 +12,7 @@ export interface Repository<T> {
 
   findByPredicate(predicates: Predicates, pageable: Pageable): Observable<Page<T>>
 
-  findAll(): Observable<T>
+  findAll(): Observable<T[]>
 
   create(t: T): Observable<T>
 

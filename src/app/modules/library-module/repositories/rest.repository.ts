@@ -24,8 +24,8 @@ export abstract class RestRepository<T> implements Repository<T> {
     return this.httpCt.post(this.url, predicates, {params: params(pageable)})
   }
 
-  public findAll(): Observable<T> {
-    return this.httpCt.get<T>(this.url);
+  public findAll(): Observable<T[]> {
+    return this.httpCt.get<T[]>(this.url);
   }
 
   public create(t: T): Observable<T> {

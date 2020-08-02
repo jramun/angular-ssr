@@ -15,7 +15,7 @@ export abstract class LocalDbRepository<T> implements Repository<T> {
     return undefined;
   }
 
-  findAll(): Observable<T> {
+  findAll(): Observable<T[]> {
     return undefined;
   }
 

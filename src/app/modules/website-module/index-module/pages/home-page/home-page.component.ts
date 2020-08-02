@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {ContextService} from "../../../../library-module/services/context.service";
 import {Store} from "@ngrx/store";
-import {Post} from "../../../../shared-module/entities/post";
+import {PostEntity} from "../../../../shared-module/entities/post.entity";
 import {Observable} from "rxjs";
-import {PostActionGet} from "../../actions/post.action";
+import {PostActionLoad} from "../../actions/post.action";
 
 @Component({
   selector: 'app-home-page',
@@ -11,15 +11,14 @@ import {PostActionGet} from "../../actions/post.action";
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
-  posts: Observable<Post[]> = this.store.select(state => state.posts);
+  posts: Observable<PostEntity[]> = this.store.select(state => state.posts);
 
-  constructor(private store: Store<{ posts: Post[] }>, private contextService: ContextService) {
+  constructor(private store: Store<{ posts: PostEntity[] }>, private contextService: ContextService) {
     // super(contextService)
   }
 
 
   onRefresh() {
-    console.log(this.store)
-    this.store.dispatch(new PostActionGet())
+    this.store.dispatch(new PostActionLoad())
   }
 }

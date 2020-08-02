@@ -1,19 +1,19 @@
 export class Page<T> {
-  private content?: T[];
+  public content?: T[];
 
-  private empty?: boolean;
+  public empty?: boolean;
 
-  private first?: boolean;
+  public first?: boolean;
 
-  private last?: boolean;
+  public last?: boolean;
 
-  private number?: number;
+  public number?: number;
 
-  private numberOfElements?: number;
+  public numberOfElements?: number;
 
-  private size?: number;
+  public size?: number;
 
-  private totalElements?: number;
+  public totalElements?: number;
 
-  private totalPages?: number;
+  public totalPages?: number;
 }

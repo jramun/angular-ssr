@@ -4,7 +4,7 @@ import {BaseRestRepository} from "../../library-module/repositories/base-rest.re
 import {HttpClient} from "@angular/common/http";
 
 @Injectable()
-export class PostRepository extends BaseRestRepository<PostEntity> {
+export class PostRestRepository extends BaseRestRepository<PostEntity> {
   constructor(private httpClient: HttpClient) {
     super('posts', httpClient);
   }

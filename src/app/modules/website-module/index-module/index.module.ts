@@ -8,6 +8,7 @@ import {PostReducer} from "./reducers/post.reducer";
 import {PostEffects} from "./effects/post.effects.service";
 import {StoreModule} from "@ngrx/store";
 import {EffectsModule} from "@ngrx/effects";
+import {CommonModule} from "@angular/common";
 
 
 const routes: Routes = [
@@ -26,7 +27,8 @@ export class IndexRoutingModule {
   imports: [
     IndexRoutingModule,
     StoreModule.forFeature("posts", PostReducer),
-    EffectsModule.forFeature([PostEffects])
+    EffectsModule.forFeature([PostEffects]),
+    CommonModule
   ],
   exports: [],
   declarations: [HomePageComponent],

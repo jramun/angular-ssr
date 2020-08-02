@@ -1,24 +1,16 @@
 import {Predicate} from "./predicate";
 
 export class Predicates {
-  private _predicateWrappers?: Array<PredicateWrapper>
-
-  get predicateWrappers(): Array<PredicateWrapper> {
-    return this._predicateWrappers;
-  }
-
-  set predicateWrappers(value: Array<PredicateWrapper>) {
-    this._predicateWrappers = value;
-  }
+  predicateWrappers?: Array<PredicateWrapper>
 
   public addPredicate(predicateWrapper: PredicateWrapper) {
-    this._predicateWrappers.push(predicateWrapper);
+    this.predicateWrappers.push(predicateWrapper);
   }
 }
 
 export class PredicateWrapper {
-  private predicate: Predicate;
-  private type: PredicateWrapper;
+  predicate: Predicate;
+  type: PredicateWrapper;
 }
 
 export enum PredicateWrapperType {

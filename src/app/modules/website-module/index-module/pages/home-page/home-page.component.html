@@ -1,5 +1,7 @@
 <p>home-page works!</p>
 <button (click)="onRefresh()">Refresh button</button>
-<!--<div *ngFor="let post of posts | async">-->
-<!--  {{ post.name }}-->
-<!--</div>-->
+<button (click)="onAdd()">Add button</button>
+
+<div *ngFor="let post of posts | async">
+  {{ post.name }}
+</div>

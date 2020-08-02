@@ -10,6 +10,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {StoreModule} from "@ngrx/store";
 import {EffectsModule} from "@ngrx/effects";
+import {DBModule} from "@ngrx/db";
+import {schema} from "./modules/shared-module/localdb/db";
 
 
 @NgModule({
@@ -19,6 +21,7 @@ import {EffectsModule} from "@ngrx/effects";
     AppRoutingModule,
     LibraryModule,
     SharedModule,
+    DBModule.provideDB(schema),
     WebsiteModule,
     HttpClientModule,
     StoreDevtoolsModule.instrument(),

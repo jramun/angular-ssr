@@ -3,7 +3,7 @@ import {ContextService} from "../../../../library-module/services/context.servic
 import {Store} from "@ngrx/store";
 import {PostEntity} from "../../../../shared-module/entities/post.entity";
 import {Observable} from "rxjs";
-import {PostActionLoad} from "../../actions/post.action";
+import {PostActionType} from "../../actions/post.action";
 
 @Component({
   selector: 'app-home-page',
@@ -19,6 +19,10 @@ export class HomePageComponent {
 
 
   onRefresh() {
-    this.store.dispatch(new PostActionLoad())
+    this.store.dispatch({type: PostActionType.DB_FIND_ALL})
+  }
+
+  onAdd() {
+    this.store.dispatch({type: PostActionType.CREATE, payload: new PostEntity("test des")})
   }
 }

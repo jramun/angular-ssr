@@ -7,7 +7,8 @@ import {LibraryModule} from "./modules/library-module/library.module";
 import {SharedModule} from "./modules/shared-module/shared.module";
 import {WebsiteModule} from "./modules/website-module/website.module";
 import {HttpClientModule} from "@angular/common/http";
-import {CommonModule} from "@angular/common";
+import {EffectsModule} from "@ngrx/effects";
+import {PostEffects} from "./modules/website-module/index-module/effects/post-effects.service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,10 +16,10 @@ import {CommonModule} from "@angular/common";
     BrowserModule.withServerTransition({appId: 'serverApp'}),
     AppRoutingModule,
     LibraryModule,
+    EffectsModule.forRoot([PostEffects]),
     SharedModule,
     WebsiteModule,
-    HttpClientModule,
-    CommonModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -24,8 +24,25 @@ import {schema} from "./modules/shared-module/localdb/db";
     DBModule.provideDB(schema),
     WebsiteModule,
     HttpClientModule,
-    StoreDevtoolsModule.instrument(),
-    StoreModule.forRoot({}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: false,
+      features: {
+        pause: false,
+        lock: true,
+        persist: true
+      }
+    }),
+    StoreModule.forRoot({}, {
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true,
+        strictStateSerializability: true,
+        strictActionSerializability: false,
+        strictActionWithinNgZone: true,
+        strictActionTypeUniqueness: true,
+      },
+    }),
     EffectsModule.forRoot([])
   ],
   providers: [],

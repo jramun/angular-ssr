@@ -12,6 +12,7 @@ import {StoreModule} from "@ngrx/store";
 import {EffectsModule} from "@ngrx/effects";
 import {DBModule} from "@ngrx/db";
 import {schema} from "./modules/shared-module/localdb/db";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import {schema} from "./modules/shared-module/localdb/db";
         strictActionTypeUniqueness: true,
       },
     }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

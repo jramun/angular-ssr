@@ -1,0 +1,43 @@
+<!--  -->
+<table mat-table class="w-full" [dataSource]="dataSource">
+  <!-- ba tavajoh be inke kodomeshe ye style mide besh :
+       text | image | icon | actions -->
+  <ng-container *ngFor="let col of _columns;" [matColumnDef]="col.key">
+    <th mat-header-cell *matHeaderCellDef>{{col.label}}</th>
+    <td mat-cell *matCellDef="let element;">
+      <ng-container [ngSwitch]="col.type">
+        <ng-container *ngSwitchCase="'text'">
+          <div [ngClass]="col.ngClass && col.ngClass(element)">
+            {{col.value ? col.value(element) : element[col.key]}}
+          </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'image'">
+          <div class="flex p-1">
+            <div class="w-16 h-16 rounded"
+                 [appBgImage]="col.value ? col.value(element) : (element[col.key] | resourceImageUrl)">
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'icon'">
+          <mat-icon [ngClass]="col.ngClass && col.ngClass(element)">
+            {{col.value ? col.value(element) : element[col.key]}}
+          </mat-icon>
+        </ng-container>
+        <ng-container *ngSwitchCase="'actions'">
+          <ng-container *ngFor="let action of col.actions | keyvalue | sortBy:'value.position';">
+            <button mat-icon-button
+                    *ngIf="action.value"
+                    [matTooltip]="action.value.tooltip"
+                    (click)="action.value.click(element)">
+              <mat-icon [color]="action.value.icon.color">{{action.value.icon.name}}</mat-icon>
+            </button>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>

@@ -1,0 +1,26 @@
+<!-- in component , component asli ma hastesh k  hame safahat in stractutr ro daran -->
+
+<div class="h-full flex flex-col">
+  <!-- header har safhe -->
+  <app-base-list-header class="flex-none"
+                        [field]="searchField"
+                        [loading]="instance.loading"
+                        [hideAdd]="hideAdd"
+                        (onAdd)="instance.onAdd()"
+                        (onFilter)="instance.onFilter($event)">
+  </app-base-list-header>
+
+  <!-- table har safhe -->
+  <app-base-list-table class="flex-1 overflow-y-auto"
+                       [columns]="instance.columns"
+                       [data]="instance.data?.content">
+  </app-base-list-table>
+
+  <!-- footer har safhe -->
+  <app-base-list-paginator class="flex-none"
+                           [pageable]="instance.filter"
+                           [page]="instance.data"
+                           (onPage)="instance.onPage($event)">
+  </app-base-list-paginator>
+
+</div>

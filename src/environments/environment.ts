@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   protocol: "http",
-  apiUrl: "http://localhost:3000"
+  apiUrl: "http://localhost:3000",
+  keyPageSize: ""
 };
 
 /*

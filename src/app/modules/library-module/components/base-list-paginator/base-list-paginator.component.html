@@ -1,0 +1,15 @@
+<!-- 
+    -pageIndex : pagi k alan hast
+    -length: tedae kole page ha
+    -pageSize ; chandta page neshon bede
+    -pageSizeOptions : tedad page hayi k soport mishe ta seect kone
+    -page : har taghiri k inja rokh mide
+    -showFirstLastButtons : baraye namayeshe dokme avalo akhar
+ -->
+<mat-paginator [pageIndex]="pageable?.page"
+               [pageSize]="pageable?.size"
+               [pageSizeOptions]="[2, 4, 8, 16, 32, 64]"
+               [length]="page?.totalElements"
+               (page)="onPageEvent($event)"
+               showFirstLastButtons>
+</mat-paginator>
